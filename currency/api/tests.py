@@ -20,6 +20,9 @@ class RateTestCase(APITestCase):
         Rate.objects.create(currency=eur, value=0.8951752)
 
     def convert_by_hand(self, amount, from_currency, to_currency):
+        """
+        Supporting function for convert api check.
+        """
         from_rate = Rate.objects.get(currency__name=from_currency, obsolete=False).value
         to_rate = Rate.objects.get(currency__name=to_currency, obsolete=False).value
         result = decimal.Decimal(amount) / from_rate * to_rate;
@@ -48,6 +51,9 @@ class RateTestCase(APITestCase):
         self.assertEqual(response.data['rate'], 1)
 
     def test_get_currency_details_not_found(self):
+        """
+        Currency details with incorrect currency.
+        """
         data = {'name': 'NOTFOUND'}
         url = reverse('currency-details', kwargs=data)
 
@@ -55,6 +61,9 @@ class RateTestCase(APITestCase):
         self.assertEqual(response.status_code, status.HTTP_404_NOT_FOUND)
 
     def test_convert(self):
+        """
+        Currencies conversions.
+        """
         # convert USD to USD ;)
         data = {'amount': '1', 'from_currency': 'USD', 'to_currency': 'USD'}
         url = reverse('convert', kwargs=data)
