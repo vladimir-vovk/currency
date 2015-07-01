@@ -23,6 +23,6 @@ urlpatterns = [
     url(r'^api/currency/(?P<name>([a-zA-Z])+)$', views.CurrencyDetails.as_view(), name='currency-details'),
     url(r'^api/convert/(?P<amount>([0-9.])+)/(?P<from_currency>([a-zA-Z])+)/(?P<to_currency>([a-zA-Z])+)$',
         views.CurrencyConvert.as_view(), name='convert'),
-    url(r'^api/.*', views.APINotFound.as_view())
+    # url(r'^api/.*', views.APINotFound.as_view()),  # if you want 200 OK for API not found with json response
 ]
 

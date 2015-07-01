@@ -7,14 +7,6 @@ import decimal
 import time
 
 
-class APINotFound(APIView):
-    def get(self, request):
-        return Response({
-            'error': True,
-            'status': 404,
-            'description': 'Requested API not found, please check and try again.'
-        })
-
 class CurrencyConvert(APIView):
     def get(self, request, from_currency, to_currency, amount):
         try:
@@ -66,4 +58,12 @@ class CurrencyDetails(generics.RetrieveAPIView):
     queryset = Currency.objects.all()
     lookup_field = 'name'
     serializer_class = CurrencyDetailsSerializer
+
+class APINotFound(APIView):
+    def get(self, request):
+        return Response({
+            'error': True,
+            'status': 404,
+            'description': 'Requested API not found, please check and try again.'
+        })
 
