@@ -15,9 +15,11 @@ python3 currency/manage.py runserver
 
 # Admin
 
-Open http://localhost:8000/admin (user: admin, password: admin).
+Open [http://localhost:8000/admin](http://localhost:8000/admin) (user: admin, password: admin).
+
 All available currencies for conversion are in "Currencies" table. You can manage them manually.
-All currencies rates is in "Rates" table. To update rates use command:
+
+All currencies rates are in "Rates" table. To update rates use command:
 ```
 python3 currency/manage.py update_rates.
 ```
@@ -28,6 +30,11 @@ python3 currency/manage.py test.
 
 # REST API
 
-api/currency -- all available currencies
-api/currency/NAME -- details for currency with NAME
-api/convert/AMOUNT/FROM_NAME/TO_NAME -- currency conversion
+### api/currency 
+  Get all available currencies.
+  
+### api/currency/NAME
+  Get details for currency with NAME.
+  
+### api/convert/AMOUNT/FROM_NAME/TO_NAME
+  Get currency conversion result.
