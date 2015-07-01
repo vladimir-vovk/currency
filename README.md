@@ -2,13 +2,13 @@ Simple currency conversion REST API with django rest framework.
 
 # Installation
 
-1. Install python3 and create virtualenv (optional).
-2. Clone repo and cd to repo directory.
+1. Install python3, then create virtualenv (optional).
+2. Clone the repo, then cd to the repo directory.
 3. Install requirements:
 ```
 pip install requirements/local.txt
 ```
-4. Run app locally:
+4. Run the app locally:
 ```
 python3 currency/manage.py runserver
 ```
@@ -17,13 +17,13 @@ python3 currency/manage.py runserver
 
 Open [http://localhost:8000/admin](http://localhost:8000/admin) (user: admin, password: admin).
 
-All available currencies for conversion are in "Currencies" table. You can manage them manually.
+All available currencies for conversion are in the "Currencies" table. You can manually manage them.
 
-All currencies rates are in "Rates" table. To update rates use command:
+All currencies rates are in the "Rates" table. To update rates use the following command:
 ```
 python3 currency/manage.py update_rates.
 ```
-You can run tests with:
+You can run the tests as follows:
 ```
 python3 currency/manage.py test.
 ```
