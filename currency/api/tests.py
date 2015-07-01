@@ -25,8 +25,8 @@ class RateTestCase(APITestCase):
         """
         from_rate = Rate.objects.get(currency__name=from_currency, obsolete=False).value
         to_rate = Rate.objects.get(currency__name=to_currency, obsolete=False).value
-        result = decimal.Decimal(amount) / from_rate * to_rate;
-        #print('{0} {1} -> {2} = {3}'.format(amount, from_currency, to_currency, result))
+        result = decimal.Decimal(amount) / from_rate * to_rate
+        # print('{0} {1} -> {2} = {3}'.format(amount, from_currency, to_currency, result))
 
         return result.quantize(decimal.Decimal('0.01'), rounding=decimal.ROUND_HALF_UP)
 
