@@ -1,4 +1,3 @@
-#from django.shortcuts import render
 from rest_framework import generics, serializers
 from rest_framework.views import APIView
 from rest_framework.response import Response
@@ -7,6 +6,14 @@ from .models import Currency, Rate
 import decimal
 import time
 
+
+class APINotFound(APIView):
+    def get(self, request):
+        return Response({
+            'error': True,
+            'status': 404,
+            'description': 'Requested API not found, please check and try again.'
+        })
 
 class CurrencyConvert(APIView):
     def get(self, request, from_currency, to_currency, amount):
